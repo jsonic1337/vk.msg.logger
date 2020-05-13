@@ -20,7 +20,7 @@ if (messages[msg.chat_id].length >= 11){
 messages[msg.chat_id].shift();
 }
 }
-
+if (!msg.out) return
 if (msg.body.toLowerCase() == '/log' && Object.keys(messages).indexOf(msg.chat_id.toString()) == -1){
 messages[msg.chat_id] = [];
 vk.messages.edit({ peer_id: msg.peer_id, message: ('Чат добавлен!'), message_id: msg.id.toString() });
